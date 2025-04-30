@@ -1,6 +1,7 @@
 
 import './App.css';
 import CreatePage from './components/CreatePage';
+import HomePage from './components/HomePage';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 
@@ -26,6 +27,7 @@ function App() {
     
     <Navbar mode={mode} toggleMode={toggleMode}/>
     <CreatePage/>
+    <HomePage/>
     </>
   );
 }

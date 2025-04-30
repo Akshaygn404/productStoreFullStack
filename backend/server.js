@@ -4,15 +4,19 @@ import mongoose from 'mongoose';
 import { CommandSucceededEvent, Db } from 'mongodb';
 import { connectDB } from './config/db.js';
 import Product from './models/product.models.js';
+import cors from 'cors'
+
 
 
 dotenv.config({path:'../.env'});
 
 const app=express();
 
+
+app.use(cors());
 app.use(express.json());
 
-app.get("/", async (req, res) => {
+app.get("/products", async (req, res) => {
     try {
         const products = await Product.find({});
         console.log("Products are:", products);
@@ -79,9 +83,9 @@ app.put('/products/:id', async (req, res) => {
 
 console.log(process.env.MONGO_URI);
 
-app.listen(3000,()=>{
+app.listen(5000,()=>{
     connectDB();
     console.log("Server is running on port 3000");
     
-});
+}); 
 
